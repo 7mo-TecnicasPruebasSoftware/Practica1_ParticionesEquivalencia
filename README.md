@@ -4,9 +4,9 @@ Este proyecto implementa funciones en Python y sus respectivas pruebas unitarias
 
 ## Instalación y configuración del entorno
 
-Las siguientes instrucciones están diseñadas exclusivamente para **Linux Ubuntu**.
+Las siguientes instrucciones están diseñadas exclusivamente para **Linux Ubuntu** y estan a forma de _copy paste_, así que solo es necesario que abra su terminal y siga los pasos a continuación:
 
-1. Descargue el instalador oficial:
+1. Descargue MiniConda usando instalador oficial:
    ```bash
    wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
    ```
@@ -30,9 +30,9 @@ Las siguientes instrucciones están diseñadas exclusivamente para **Linux Ubunt
 
    <div align="center">
        <img width="427" height="55" alt="image" src="https://github.com/user-attachments/assets/a1465598-2072-49a5-a3d5-10accd689af6" />
-   </d>
+   </div>
    
-7. Con el entorno TPS activo, instale las herramientas de prueba:
+6. Con el entorno TPS activo, instale las herramientas de prueba:
    ```bash
     conda install pytest
    ```
