@@ -43,8 +43,7 @@ Una vez que el entorno **TPS** esté configurado y activo, siga estos pasos para
 
 1. Clonaremos el repositorio para descargar el proyecto en su máquina local y ejecutar las pruebas:
    ```bash
-   git clone [https://github.com/TU_USUARIO/NOMBRE_DEL_REPOSITORIO.git](https://github.com/TU_USUARIO/NOMBRE_DEL_REPOSITORIO.git)
-   cd NOMBRE_DEL_REPOSITORIO
+   git clone git@github.com:7mo-TecnicasPruebasSoftware/Practica1_ParticionesEquivalencia.git
    ```
 
 2. Asegúrese de que su directorio se vea de la siguiente forma antes de ejecutar las pruebas. La separación entre el código fuente y tests es vital para las buenas prácticas de ingeniería de software:
