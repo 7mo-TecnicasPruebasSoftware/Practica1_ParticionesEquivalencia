@@ -1,17 +1,19 @@
 import pytest
-from src.calcular_temperatura import calcular_temperatura
 
-# Prueba de valor válido (Partición: Frío)
-def test_calcular_temperatura_frio():
-    resultado = calcular_temperatura(10)
-    assert resultado == "Frio"
+from src.calcular_temperatura import clasificar_temperatura 
 
-# Prueba de Excepción de Rango (Partición Inválida: > 10000)
-def test_error_rango():
+@pytest.mark.parametrize("temp, esperado", [
+    (10, "Frío"),      # Partición: Frío 
+    (20, "Templado"),  # Partición: Templado 
+    (30, "Caliente")   # Partición: Caliente 
+])
+def test_clasificar_temperatura_validas(temp, esperado):
+    assert clasificar_temperatura(temp) == esperado
+
+def test_error_rango_temperatura():
     with pytest.raises(ValueError):
-        calcular_temperatura(12000)
+        clasificar_temperatura(12000)
 
-# Prueba de Excepción de Tipo (Partición Inválida: String)
-def test_error_tipo():
+def test_error_tipo_temperatura():
     with pytest.raises(TypeError):
-        calcular_temperatura("calorcito")
+        clasificar_temperatura("calorcito")

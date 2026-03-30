@@ -1,33 +1,19 @@
 import pytest
 from src.clasificar_calificacion import clasificar_calificacion
 
-# --- PARTICIONES VALIDAS ---
+@pytest.mark.parametrize("nota, esperado", [
+    (5.5, "Reprobado"),      # < 6 
+    (7.5, "Aprobado"),       # 6 - 8 
+    (9.5, "Sobresaliente")   # 9 - 10 
+])
+def test_calificaciones_validas(nota, esperado):
+    assert clasificar_calificacion(nota) == esperado
 
-def test_reprobado():
-    # Particion 1 (nota < 6)
-    assert clasificar_calificacion(5.5) == "Reprobado"
-
-def test_aprobado():
-    # Particion 2 (6 <= nota < 9)
-    assert clasificar_calificacion(7) == "Aprobado"
-
-def test_sobresaliente():
-    # Particion 3 (nota >= 9)
-    assert clasificar_calificacion(9.5) == "Sobresaliente"
-
-# --- PARTICIONES INVALIDAS ---
-
-def test_error_nota_negativa():
-    # Nota fuera de rango inferior (ValueError)
-    with pytest.raises(ValueError):
-        clasificar_calificacion(-1)
-
-def test_error_nota_excedida():
-    # Nota fuera de rango superior (ValueError)
-    with pytest.raises(ValueError):
-        clasificar_calificacion(11)
-
-def test_error_tipo_dato():
-    # Entrada no numerica (TypeError)
-    with pytest.raises(TypeError):
-        clasificar_calificacion("Excelente")
+@pytest.mark.parametrize("valor_invalido, excepcion", [
+    (-1, ValueError),    # Fuera de rango inferior 
+    (11, ValueError),    # Fuera de rango superior 
+    ("Excelente", TypeError) # No numérico
+])
+def test_calificaciones_invalidas(valor_invalido, excepcion):
+    with pytest.raises(excepcion):
+        clasificar_calificacion(valor_invalido)
