@@ -10,7 +10,9 @@ def calcular_temperatura(temp):
         raise ValueError("Temperatura fuera de rango")
 
     # Lógica de clasificación
-    if temp <= 10:
+    if temp <= 15:
         return "Frio"
+    elif 16 <= temp <= 25:
+        return "Templado"
     else:
-        return "Normal/Calor"
+        return "Caliente"
